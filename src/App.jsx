@@ -26,7 +26,7 @@ import ViewEnq from "./pages/ViewEnq";
 import ViewOrder from "./pages/ViewOrder";
 import UpdateProduct from "./pages/updateProduct";
 function App() {
-  return (
+  return ( 
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
