@@ -24,7 +24,7 @@ import Couponlist from "./pages/Couponlist";
 import AddCoupon from "./pages/AddCoupon";
 import ViewEnq from "./pages/ViewEnq";
 import ViewOrder from "./pages/ViewOrder";
-import UpdateProduct from "./pages/updateProduct";
+import UpdateProduct from "./pages/EditProduct";
 function App() {
   return ( 
     <Router>
