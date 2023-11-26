@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
 import uploadService from "./uploadService";
 
 export const uploadImg = createAsyncThunk(
@@ -15,6 +15,8 @@ export const uploadImg = createAsyncThunk(
     }
   }
 );
+
+
 export const delImg = createAsyncThunk(
   "delete/images",
   async (id, thunkAPI) => {
@@ -25,6 +27,8 @@ export const delImg = createAsyncThunk(
     }
   }
 );
+
+
 const initialState = {
   images: [],
   isError: false,
@@ -35,7 +39,15 @@ const initialState = {
 export const uploadSlice = createSlice({
   name: "imaegs",
   initialState,
-  reducers: {},
+  reducers: {
+    addImage: (state, action) => {
+      state.images = [...action.payload];
+      state.isLoading = false;
+      state.isError = false;
+      state.isSuccess = true;
+    },
+  
+  },
   extraReducers: (builder) => {
     builder
       .addCase(uploadImg.pending, (state) => {
@@ -70,4 +82,6 @@ export const uploadSlice = createSlice({
       });
   },
 });
+
+export const {addImage} = uploadSlice.actions;
 export default uploadSlice.reducer;

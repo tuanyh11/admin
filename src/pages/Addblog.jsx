@@ -16,6 +16,7 @@ import {
   updateABlog,
 } from "../features/blogs/blogSlice";
 import { getCategories } from "../features/bcategory/bcategorySlice";
+import ReactQuill from "react-quill";
 
 let schema = yup.object().shape({
   title: yup.string().required("Title is Required"),
@@ -145,13 +146,13 @@ const Addblog = () => {
           <div className="error">
             {formik.touched.category && formik.errors.category}
           </div>
-          {/* <ReactQuill
+          <ReactQuill
             theme="snow"
             className="mt-3"
             name="description"
             onChange={formik.handleChange("description")}
             value={formik.values.description}
-          /> */}
+          />
           <div className="error">
             {formik.touched.description && formik.errors.description}
           </div>
